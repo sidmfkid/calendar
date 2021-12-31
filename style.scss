@@ -6,3 +6,128 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-container {
+  // flex-basis: 39rem;
+  width: 40rem;
+  height: min-content;
+  padding: 2rem;
+  &_content {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    border: 2px solid #e778f3;
+    padding: 1rem;
+    background: hsl(294, 84%, 91%);
+    border-radius: 1rem;
+    #month {
+      grid-column: 1 / 4;
+      font-size: 2rem;
+      background: hsl(294, 84%, 91%);
+      border: 2px solid hsl(294, 84%, 35%);
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+    #year {
+      grid-column: 5 / 8;
+      font-size: 2rem;
+      background: hsl(294, 84%, 91%);
+      border: 2px solid hsl(294, 84%, 35%);
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+    .weekdays {
+      font-size: 2.5rem;
+      grid-column: 1/ 8;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      place-items: center;
+    }
+    &-days {
+      grid-column: 1 / 8;
+      grid-row: 3 / 9;
+      font-size: 2.3rem;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(auto-fit, 1fr);
+      // border: 2px solid hsl(294, 84%, 41%);
+      background: hsl(294, 84%, 61%);
+      padding: 0.4rem;
+      border-radius: 1rem;
+      position: relative;
+      place-items: center;
+      .day-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .prev-day {
+        display: block;
+
+        // background: hsla(294, 84%, 91%, 0.6);
+        font-size: 2rem;
+        width: 95%;
+        height: 95%;
+        text-align: end;
+        padding: 0.4rem;
+        border-radius: 1rem;
+      }
+      .day {
+        display: block;
+        background: #e778f3;
+        width: 95%;
+        height: 95%;
+        text-align: end;
+        padding: 0.4rem;
+        border-radius: 1rem;
+        font-size: 2rem;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+      }
+      input[type="radio"] {
+        visibility: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      input[type="radio"]:checked ~ .day {
+        background: hsl(294, 84%, 35%);
+        color: blanchedalmond;
+      }
+
+      .selected {
+        background: hsl(294, 84%, 35%);
+        color: blanchedalmond;
+        width: 95%;
+        height: 95%;
+        text-align: end;
+        padding: 0.4rem;
+        border-radius: 1rem;
+        display: block;
+        font-size: 2rem;
+      }
+    }
+    &-select-days {
+      grid-column: 1 / 8;
+      // grid-row: ;
+
+      margin: 1rem auto;
+      h2 {
+        font-size: 2rem;
+
+        span {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
